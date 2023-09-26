@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    引入外部properties文件-->
+<!--    <properties resource="jdbc.properties"></properties>-->
+
+
+<!--    <settings>-->
+<!--    <setting name="lazyLoadingEnabled" value="true"/>-->
+<!--    <setting name="aggressiveLazyLoading" value="false"/>-->
+<!--        <setting name="cacheEnabled" value="true"/>-->
+<!--    </settings>-->
+
+<!--&lt;!&ndash;    给pojo包里面的实体类指定别名&ndash;&gt;-->
+<!--    <typeAliases>-->
+<!--&lt;!&ndash;        为类指定专门的别名 alias指定别名&ndash;&gt;-->
+<!--&lt;!&ndash;        <typeAlias type="com.baidu.pojo.emp1" alias="e"></typeAlias>&ndash;&gt;-->
+<!--&lt;!&ndash;        <typeAlias type="com.baidu.pojo.QueryVo" alias="q"></typeAlias>&ndash;&gt;-->
+<!--&lt;!&ndash;        给整个包指定别名&ndash;&gt;-->
+<!--&lt;!&ndash;        批量指定别名  此时在使用时  直接用类名  首字母大小写不敏感&ndash;&gt;-->
+<!--        <package name="com.baidu.pojo"/>-->
+<!--    </typeAliases>-->
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--&lt;!&ndash; transactionmanager 事务管理标签&ndash;&gt;-->
+<!--            <transactionManager type="JDBC"></transactionManager>-->
+<!--&lt;!&ndash;   pooled是连接池技术&ndash;&gt;-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${jdbc.driver}"/>-->
+<!--                <property name="url" value="${jdbc.url}"/>-->
+<!--                <property name="username" value="${jdbc.username}"/>-->
+<!--                <property name="password" value="${jdbc.password}"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+<!--    <mappers>-->
+<!--&lt;!&ndash;        此处可以按包注册&ndash;&gt;-->
+<!--&lt;!&ndash;        <mapper resource="com.baidu.dao/Emp1Dao.xml"></mapper>&ndash;&gt;-->
+<!--        <package name="mapper"/>-->
+<!--    </mappers>-->
+</configuration>

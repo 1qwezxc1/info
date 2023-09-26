@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baidu.mapper.AaaMapper">
+    <select id="find" resultType="Aaa">
+        select * from aaa
+    </select>
+    <delete id="delete" parameterType="int">
+delete from aaa where id=#{id}
+    </delete>
+    <insert id="insert" parameterType="Aaa">
+        insert into aaa(id,name,sal,date) values (#{id},#{name},#{sal},#{date})
+    </insert>
+    <update id="update" parameterType="Aaa">
+        update aaa set name=#{name},sal=#{sal},date=#{date} where id=#{id}
+    </update>
+
+    <select id="findid" resultType="Aaa" parameterType="int">
+        select * from aaa where id=#{id}
+    </select>
+    <select id="findlike" resultType="Aaa" parameterType="String">
+        select * from aaa where name like concat('%',#{str},'%')
+    </select>
+</mapper>

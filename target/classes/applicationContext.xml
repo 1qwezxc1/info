@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+					  http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+<!--打开注解-->
+    <context:component-scan base-package="com.baidu"></context:component-scan>
+    <!--引入jdbc.properties-->
+    <context:property-placeholder location="classpath*:jdbc.properties" ignore-unresolvable="true"></context:property-placeholder>
+<!--    <bean id="com.baidu.dao" class="com.baidu.dao.Daoaaaimpl">-->
+<!--        <property name="qr" ref="queryrunner"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="queryrunner" class="org.apache.commons.dbutils.QueryRunner">-->
+<!--        <constructor-arg name="ds" ref="datesource"></constructor-arg>-->
+<!--    </bean>-->
+<!--使用c3p0数据源-->
+    <bean id="datesource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/day02?serverTimezone=UTC"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="jiang200826"></property>
+    </bean>
+    <bean id="aaa" class="com.baidu.pojo.Aaa"></bean>
+    <bean id="Dateformate" class="java.text.SimpleDateFormat"></bean>
+
+
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!--        数据源-->
+        <property name="dataSource" ref="datesource"></property>
+<!--        别名-->
+        <property name="typeAliasesPackage" value="com.baidu.pojo"></property>
+    </bean>
+
+<!--扫描mapper包-->
+<bean id="mapperscanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="com.baidu.mapper"></property>
+</bean>
+<!--事务管理-->
+<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="datesource"></property>
+</bean>
+</beans>
